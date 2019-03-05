@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.ScheduleInfoMapper">
+    <resultMap id="BaseResultMap" type="com.manager.entity.ScheduleInfoEntity">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="workno" jdbcType="VARCHAR" property="workno"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="hiredate" jdbcType="DATE" property="hiredate"/>
+        <result column="affair" jdbcType="VARCHAR" property="affair"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="gender" jdbcType="VARCHAR" property="gender"/>
+        <result column="statu" jdbcType="VARCHAR" property="statu"/>
+        <result column="hstatu" jdbcType="VARCHAR" property="hstatu"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    workno,username,hiredate,affair,age,gender
+</sql>
+    <select id="findByNo" resultType="com.manager.entity.ScheduleInfoEntity" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from scheduleinfo
+        where 1=1
+        <if test="_parameter != null and _parameter !=''">
+            and workno=#{_parameter}
+        </if>
+        <if test="_parameter != null and _parameter !=''">
+            or username=#{_parameter}
+        </if>
+    </select>
+    <select id="findAll" resultType="com.manager.entity.ScheduleInfoEntity" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from scheduleinfo
+        where 1=1
+    </select>
+
+</mapper>

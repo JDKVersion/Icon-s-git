@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.UserInfoMapper">
+<resultMap id="BaseResultMap" type="com.manager.entity.UserInfoEntity">
+    <result column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="workno" jdbcType="VARCHAR" property="workno"/>
+    <result column="username" jdbcType="VARCHAR" property="username"/>
+    <result column="hiredate" jdbcType="DATE" property="hiredate"/>
+    <result column="pass" jdbcType="VARCHAR" property="pass"/>
+    <result column="jobposition" jdbcType="VARCHAR" property="jobposition"/>
+    <result column="age" jdbcType="VARCHAR" property="age"/>
+    <result column="gender" jdbcType="VARCHAR" property="gender"/>
+    <result column="statu" jdbcType="VARCHAR" property="statu"/>
+</resultMap>
+<sql id="Base_Column_List">
+    workno,username,hiredate,pass,jobposition,age,gender
+</sql>
+<select id="findByNo" resultType="com.manager.entity.UserInfoEntity" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from userinfo
+    where 1=1
+    <if test="_parameter != null and _parameter !=''">
+        and workno=#{_parameter}
+    </if>
+    <if test="_parameter != null and _parameter !=''">
+        or username=#{_parameter}
+    </if>
+</select>
+    <select id="findAll" resultType="com.manager.entity.UserInfoEntity" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from userinfo
+        where 1=1
+    </select>
+
+    <select id="findOne" resultType="com.manager.entity.UserInfoEntity" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from userinfo
+        where 1=1
+        <if test="workno != null and workno !=''">
+            and workno=#{workno}
+        </if>
+        <if test="password != null and password !=''">
+            and pass=#{password}
+        </if>
+    </select>
+
+</mapper>

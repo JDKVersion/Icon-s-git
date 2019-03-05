@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.AttendanceMapper">
+    <resultMap id="BaseResultMap" type="com.manager.entity.AttendanceEntity">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="workno" jdbcType="VARCHAR" property="workno"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="attdate" jdbcType="DATE" property="attdate"/>
+        <result column="statu" jdbcType="VARCHAR" property="statu"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="gender" jdbcType="VARCHAR" property="gender"/>
+
+    </resultMap>
+    <sql id="Base_Column_List">
+    workno,username,attdate,statu,age,gender
+</sql>
+    <select id="findByNo" resultType="com.manager.entity.AttendanceEntity" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from attendance
+        where 1=1
+        <if test="_parameter != null and _parameter !=''">
+            and workno=#{_parameter}
+        </if>
+        <if test="_parameter != null and _parameter !=''">
+            or username=#{_parameter}
+        </if>
+    </select>
+    <select id="findAll" resultType="com.manager.entity.AttendanceEntity" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from attendance
+        where 1=1
+    </select>
+
+</mapper>

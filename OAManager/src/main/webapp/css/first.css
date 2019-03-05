@@ -1,0 +1,104 @@
+*{
+    scroll:no;
+}
+.top{
+    width: 1830px;
+    height:55px;
+   /* border: 1px solid red;*/
+    text-align: center;
+    line-height:55px;
+    position: relative;
+    left:15px;
+    background-color: #316AC5;
+}
+.function{
+    width: 1830px;
+    position: relative;
+    left:15px;
+    top:1px;
+    background-color:cornflowerblue;
+    border: 1px solid black;
+}
+.fs{
+    position: relative;
+    left:260px;
+}
+ul li{
+    list-style: null;
+    margin-left: 80px;
+    position: relative;
+    top:-8px;
+}
+.function li{
+    display: inline;//让li横向排列
+}
+
+.letter{
+    position: relative;
+    top:20px;
+    right:65px;
+    font-weight: bold;
+    font-size: large;
+}
+.function a{
+    color:black;
+    text-decoration:none
+}
+.left{
+    height: 715px;
+    width: 120px;
+    position: relative;
+    left:15px;
+    top:3px;
+    background-color: darkgray;
+   /* border: 1px solid black;*/
+}
+#ztree{
+    margin-top:4px;
+}
+#ztree li{
+    margin-top:10px;
+}
+.center{
+    height:620px;
+    width: 1700px;
+    border:1px solid black;
+    position: relative;
+    top:-710px;
+    left:140px;
+    background-color: antiquewhite;
+}
+#info{
+    position: relative;
+    left:1260px;
+    top:15px;
+}
+#qbtn{
+    position: relative;
+    left:1020px;
+    top:16px;
+    background-color: lightskyblue;
+}
+.formtable{
+    height:600px;
+    width: 1400px;
+    position: relative;
+    left:150px;
+    top:35px;
+  /*  border:1px solid red;*/
+}
+
+.formReg{
+    width: 1200px;
+    position: relative;
+}
+.formReg td{
+    text-align: center;
+}
+.formInfo{
+    display: none;
+}
+.active_red{
+    background-color: red;
+}
+
