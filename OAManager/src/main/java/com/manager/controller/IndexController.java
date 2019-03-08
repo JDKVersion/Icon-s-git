@@ -5,7 +5,6 @@ import com.manager.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -48,7 +47,10 @@ public class IndexController {
            if (workno != null && workno != null && pasword != null && pasword != "") {
                map.put("workno", workno);
                map.put("pasword", pasword);
+               request.getSession().setAttribute("workno",workno);
+               request.setAttribute("pasword",pasword);
                List<UserInfoEntity> list = userInfoService.findOne(map);
+
                if (list.size() == 0) {
                    request.setAttribute("msg", "工号或密码不正确");
                } else {
@@ -65,6 +67,7 @@ public class IndexController {
     public void user(HttpServletRequest request,HttpServletResponse response){
         try {
             request.getRequestDispatcher("/jsp/user.jsp").forward(request, response);
+            request.setAttribute("hstau",1);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -82,10 +85,16 @@ public class IndexController {
 
     @RequestMapping("querySchedule")
     public void queryOneS(HttpServletRequest request,HttpServletResponse response) {
+        String workno = (String)request.getSession().getAttribute("workno");
+        String pasword = (String)request.getSession().getAttribute("pasword");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("workno", workno);
+        map.put("pasword", pasword);
 
-        List<ScheduleInfoEntity> userList = scheduleInfoService.findAll();
+        List<ScheduleInfoEntity> userList = scheduleInfoService.findOne(map);
         try{
             request.setAttribute("info",userList);
+            request.setAttribute("hstau",2);
             request.getRequestDispatcher("/jsp/user.jsp").forward(request,response);
         }catch (Exception e){
             e.printStackTrace();
