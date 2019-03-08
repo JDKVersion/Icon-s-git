@@ -52,7 +52,7 @@
                 </tr>
                 <c:forEach items="${info}" var="list" >
                     <tr>
-                        <td>${list.userName}</td>
+                        <td>${list.username}</td>
                         <td>${list.gender}</td>
                         <td>${list.age}</td>
                         <td>${list.workno}</td>
