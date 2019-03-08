@@ -21,7 +21,7 @@ public class ScheduleInfoEntity {
 
     /*用户名*/
     @Column(name="username",length=20)
-    private String userName;
+    private String username;
 
     /*时间*/
     @Column(name="hiredate")
