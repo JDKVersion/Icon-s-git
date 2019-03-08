@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 @Service
@@ -14,7 +15,8 @@ public class ScheduleInfoService {
 
     @Autowired
     private ScheduleInfoMapper scheduleInfoMapper;
-    public List<ScheduleInfoEntity> findByNo(String info){ return scheduleInfoMapper.findByNo(info); }
+
+    public List<ScheduleInfoEntity> findOne(Map<String,Object> map){ return scheduleInfoMapper.findOne( map); }
     public List<ScheduleInfoEntity> findAll(){
         return scheduleInfoMapper.findAll();
     }
