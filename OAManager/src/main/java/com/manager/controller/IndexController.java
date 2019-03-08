@@ -104,11 +104,16 @@ public class IndexController {
     }
 
     @RequestMapping("queryAllatt")
-    public ModelAndView queryAllatt() {
-        ModelAndView modelAndView = new ModelAndView("attendance");
-        List<AttendanceEntity> userList = attendanceService.findAll();
-        modelAndView.addObject("info", userList);
-        return modelAndView;
+    public void queryAllatt(HttpServletRequest request,HttpServletResponse response) {
+
+       try{
+           List<AttendanceEntity> userList = attendanceService.findAll();
+           request.setAttribute("info",userList);
+           request.getRequestDispatcher("/jsp/attendance.jsp").forward(request,response);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
 
     }
 
