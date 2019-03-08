@@ -11,6 +11,7 @@
     <result column="age" jdbcType="VARCHAR" property="age"/>
     <result column="gender" jdbcType="VARCHAR" property="gender"/>
     <result column="statu" jdbcType="VARCHAR" property="statu"/>
+    <result column="statu" jdbcType="VARCHAR" property="statu"/>
 </resultMap>
 <sql id="Base_Column_List">
     workno,username,hiredate,pass,jobposition,age,gender
