@@ -76,13 +76,12 @@
                     <th>性别</th>
                     <th>年龄</th>
                     <th>工号</th>
-                    <th>入职时间</th>
-                    <th>职位</th>
+                    <th>时间</th>
                     <th>待办事项</th>
                 </tr>
                 <c:forEach items="${info}" var="list">
                     <tr>
-                        <td>${list.userName}</td>
+                        <td>${list.username}</td>
                         <td>${list.gender}</td>
                         <td>${list.age}</td>
                         <td>${list.workno}</td>
@@ -93,7 +92,7 @@
             </table>
         </div>
     </form>
-    <input type="hidden" value="${list.hstatu}" id="hid">
+    <input type="hidden" value="${hstau}" id="hid">
 </div>
 
 
