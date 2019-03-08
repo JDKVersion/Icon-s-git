@@ -54,7 +54,7 @@
                 </tr>
                 <c:forEach items="${sessionScope.list}" var="list">
                     <tr>
-                        <td>${list.userName}</td>
+                        <td>${list.username}</td>
                         <td>${list.gender}</td>
                         <td>${list.age}</td>
                         <td>${list.workno}</td>
