@@ -10,21 +10,20 @@
         <result column="age" jdbcType="VARCHAR" property="age"/>
         <result column="gender" jdbcType="VARCHAR" property="gender"/>
         <result column="statu" jdbcType="VARCHAR" property="statu"/>
-        <result column="hstatu" jdbcType="VARCHAR" property="hstatu"/>
     </resultMap>
     <sql id="Base_Column_List">
     workno,username,hiredate,affair,age,gender
 </sql>
-    <select id="findByNo" resultType="com.manager.entity.ScheduleInfoEntity" parameterType="java.lang.String">
+    <select id="findOne" resultType="com.manager.entity.ScheduleInfoEntity" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List" />
         from scheduleinfo
         where 1=1
-        <if test="_parameter != null and _parameter !=''">
-            and workno=#{_parameter}
+        <if test="workno != null and workno !=''">
+            and workno=#{workno}
         </if>
-        <if test="_parameter != null and _parameter !=''">
-            or username=#{_parameter}
+        <if test="password != null and password !=''">
+            and pass=#{password}
         </if>
     </select>
     <select id="findAll" resultType="com.manager.entity.ScheduleInfoEntity" parameterType="java.lang.String">
