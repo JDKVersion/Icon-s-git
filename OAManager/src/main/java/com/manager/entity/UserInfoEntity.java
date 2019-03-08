@@ -22,7 +22,7 @@ public class UserInfoEntity {
 
     /*用户名*/
     @Column(name="username",length=20)
-    private String userName;
+    private String username;
 
     /*密码*/
     @Column(name="pass",length=20)
