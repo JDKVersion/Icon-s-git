@@ -28,19 +28,18 @@ var zNode1 =[
 
 /* 初始化各个功能的树*/
 $(function () {
-
+    $(".formSchedule").hide()
+    $(".formu").show()
     $.fn.zTree.init($("#ztree"), setting, zNode1);
-    $("#user").click(function () {
-        $.fn.zTree.init($("#ztree"), setting, zNode1);
-        if($("#hid").val()==1){
-            $(".formSchedule").addClass("formInfo")
-            $(".formu").removeClass("formInfo")
-        }else{
-            $(".formu").addClass("formInfo")
-            $(".formSchedule").removeClass("formInfo")
-        }
+    if($("#hid").val()==2){
+        console.log()
+        $("#formu").hide()
+        $("#formSchedule").show();
 
-    });
+
+
+    }
+
 
 
 
